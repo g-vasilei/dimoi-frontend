@@ -3,6 +3,12 @@ import { HiOutlineEye, HiOutlineEyeSlash } from 'react-icons/hi2'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../features/auth/authSlice'
+import type {} from 'redux-thunk/extend-redux'
+
+type DataType = {
+   email: string
+   password: string
+}
 
 function Login() {
    const [showPassword, setShowPassword] = useState(false)
@@ -27,7 +33,7 @@ function Login() {
       e.preventDefault()
       const { email, password } = formData
 
-      const userData = { email, password }
+      const userData: LoginType = { email, password }
 
       dispatch(login(userData))
          .unwrap()

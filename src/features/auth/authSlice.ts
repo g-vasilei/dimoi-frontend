@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import authService from './authService'
 
-interface AuthState {
-   user: object
-   isLoading: boolean
+export interface AuthState {
+   user: User
+   isLoading: true | false
 }
 
 const initialState: AuthState = {
-   user: {},
+   user: { id: '', username: '', isAdmin: false },
    isLoading: false,
 }
 
@@ -17,9 +17,9 @@ type DataType = {
 }
 
 // Login user
-export const login = createAsyncThunk('auth/login', async (user: DataType, thunkAPI) => {
+export const login = createAsyncThunk('auth/login', async (userData: LoginType, thunkAPI) => {
    try {
-      return await authService.login(user)
+      return await authService.login(userData)
    } catch (error: any) {
       const message =
          (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -33,7 +33,7 @@ export const authSlice = createSlice({
    initialState,
    reducers: {
       reset: (state) => {
-         state.user = {}
+         state.user = { id: '', username: '', isAdmin: false }
          state.isLoading = false
       },
    },
