@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+   overflow-x: hidden;
+} */
+
+@media (min-width: 1280px) {
+   .custom-width {
+      width: calc(100% - 256px);
+   }
+}
+
+@media (min-width: 1536px) {
+   .custom-width {
+      width: calc(100% - 320px);
+   }
+}
+
+.custom-width {
+   width: 100%;
+}
+
+.mapboxgl-popup-close-button {
+   font-size: 25px;
+   padding: 5px;
+}
