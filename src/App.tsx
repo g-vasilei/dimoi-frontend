@@ -5,6 +5,8 @@ import Sidebar from './Components/Sidebar'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
    const Layout = () => {
@@ -40,6 +42,7 @@ function App() {
    return (
       <div className='flex w-screen bg-gray-100'>
          <RouterProvider router={router} />
+         <ToastContainer />
       </div>
    )
 }

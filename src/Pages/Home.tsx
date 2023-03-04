@@ -4,6 +4,8 @@ import { useState } from 'react'
 import React from 'react'
 import Footer from '../Components/Footer'
 import { TfiClose } from 'react-icons/tfi'
+import { BiCurrentLocation } from 'react-icons/bi'
+import { toast } from 'react-toastify'
 
 type DataType = {
    lng: number
@@ -27,29 +29,32 @@ type FormType = {
 function Home() {
    const [newPlace, setNewPlace] = React.useState<DataType | undefined>(undefined)
    const [openDrawer, setOpenDrawer] = useState(false)
-   //    const [status, setStatus] = useState({})
-   //    const [lat, setLat] = useState({})
-   //    const [long, setLng] = useState({})
+   const [viewState, setViewState] = React.useState({
+      longitude: 22.94,
+      latitude: 40.66,
+      zoom: 13,
+   })
 
-   // Get the current location of the user
-   //    const geoLocation = () => {
-   //       if (!navigator.geolocation) {
-   //          setStatus('Geolocation is not supported by your browser')
-   //       } else {
-   //          setStatus('Locating...')
-   //          navigator.geolocation.getCurrentPosition(
-   //             (position) => {
-   //                setStatus({})
-   //                setLat(position.coords.latitude)
-   //                setLng(position.coords.longitude)
-   //                console.log(position.coords.latitude, position.coords.longitude)
-   //             },
-   //             () => {
-   //                setStatus('Unable to retrieve your location')
-   //             }
-   //          )
-   //       }
-   //    }
+   //Get the current location of the user
+   const geoLocation = () => {
+      if (!navigator.geolocation) {
+         toast.error('To Geolocation δεν υποστηρίζεται απο τον browser')
+      } else {
+         navigator.geolocation.getCurrentPosition(
+            (position) => {
+               // set map long and lat
+               setViewState({
+                  longitude: position.coords.longitude,
+                  latitude: position.coords.latitude,
+                  zoom: 13,
+               })
+            },
+            () => {
+               toast.error('Κάτι πήγε λάθος, αδυναμία εύρεσης τοποθεσίας')
+            }
+         )
+      }
+   }
 
    //handle map double click
    const handleNewPlace = (e: MapLayerMouseEvent) => {
@@ -146,11 +151,7 @@ function Home() {
    return (
       <div className='overflow-hidden'>
          <Map
-            initialViewState={{
-               longitude: 22.94,
-               latitude: 40.66,
-               zoom: 12,
-            }}
+            {...viewState}
             style={{ width: '100%', height: '88vh' }}
             mapStyle='mapbox://styles/mapbox/streets-v9'
             mapboxAccessToken='pk.eyJ1IjoiY2hyaXNwYXBvdCIsImEiOiJjbDNjNW0yMzMwNWYzM2lvYXl4aWhza3U1In0.L0zQCE6Thghwsk0NddhCTQ'
@@ -180,6 +181,12 @@ function Home() {
                   </div>
                </Popup>
             )}
+            <div
+               className='absolute top-6 right-5 flex cursor-pointer items-center gap-2 rounded-md bg-slate-800 py-3 px-4 text-base font-semibold text-white'
+               onClick={geoLocation}
+            >
+               <BiCurrentLocation /> Locate me
+            </div>
          </Map>
          {openDrawer && (
             <div className='ease fixed top-0 bottom-0 right-0 z-20 w-60 animate-[comeFromRight_0.3s_ease-in-out] overflow-y-scroll bg-slate-700 p-4 transition-all duration-500 2xl:w-80'>
