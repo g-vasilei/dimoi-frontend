@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
    const [showSubMenu, setShowSubMenu] = useState(false)
@@ -18,16 +19,19 @@ function Navbar() {
                }`}
             ></div>
             <div
-               className={`absolute top-14 right-0 rounded-md border border-solid border-[#e8e8e8] bg-white px-3 py-5 lg:w-52 ${
+               className={`absolute top-14 right-0 rounded-md border border-solid border-[#e8e8e8] bg-white py-5 lg:w-52 ${
                   !showSubMenu && 'invisible '
                }`}
             >
                <ul className='text-md flex flex-col gap-4 font-semibold text-slate-900'>
-                  <li>Προφίλ</li>
-                  <li>Locate Me</li>
-                  <li>Λογαριασμός</li>
-                  <li>Αποθηκευμένα Σημεία</li>
-                  <li>Αποσύνδεση</li>
+                  <li className='px-3 text-slate-500'>Προφίλ</li>
+                  <li className='px-3' onClick={() => setShowSubMenu(false)}>
+                     <Link to='/profile'>Λογαριασμός</Link>
+                  </li>
+                  <li className='px-3' onClick={() => setShowSubMenu(false)}>
+                     <Link to='/'>Αποθηκευμένα Σημεία</Link>
+                  </li>
+                  <li className='border-t px-3 pt-4'>Αποσύνδεση</li>
                </ul>
             </div>
          </div>

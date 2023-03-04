@@ -24,7 +24,9 @@ function Sidebar() {
             }`}
          >
             <div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 lg:mt-16 lg:min-h-0 lg:items-start lg:justify-start lg:pl-2 xl:fixed xl:left-0 xl:mt-0 xl:min-h-screen xl:w-64 xl:bg-slate-800 xl:pt-8 2xl:w-80'>
-               <h2 className='text-3xl text-white'>City Maps</h2>
+               <h2 className='text-3xl text-white'>
+                  <Link to='/'>City Maps</Link>
+               </h2>
                <ul className='flex flex-col gap-8 font-semibold text-white'>
                   <li className='rounded-md p-2 hover:bg-slate-400'>
                      <Link to='/' className='flex cursor-pointer items-center gap-3'>

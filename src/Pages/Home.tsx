@@ -152,6 +152,7 @@ function Home() {
       <div className='overflow-hidden'>
          <Map
             {...viewState}
+            onMove={(evt) => setViewState(evt.viewState)}
             style={{ width: '100%', height: '88vh' }}
             mapStyle='mapbox://styles/mapbox/streets-v9'
             mapboxAccessToken='pk.eyJ1IjoiY2hyaXNwYXBvdCIsImEiOiJjbDNjNW0yMzMwNWYzM2lvYXl4aWhza3U1In0.L0zQCE6Thghwsk0NddhCTQ'

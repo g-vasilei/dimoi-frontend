@@ -7,13 +7,14 @@ import Login from './Pages/Login'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Profile from './Pages/Profile'
 
 function App() {
    const Layout = () => {
       return (
          <>
             <Sidebar />
-            <div className='custom-width flex flex-col overflow-x-hidden xl:ml-64 2xl:ml-80'>
+            <div className='custom-width flex min-h-screen flex-col overflow-x-hidden xl:ml-64 2xl:ml-80'>
                <Navbar />
                <Outlet />
             </div>
@@ -30,6 +31,10 @@ function App() {
             {
                path: '/',
                element: <Home />,
+            },
+            {
+               path: '/profile',
+               element: <Profile />,
             },
          ],
       },
