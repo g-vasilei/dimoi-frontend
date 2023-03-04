@@ -5,9 +5,14 @@ import Sidebar from './Components/Sidebar'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Profile from './Pages/Profile'
+import SingleMarker from './Pages/SingleMarker'
+import Statistics from './Pages/Statistics'
+import Reports from './Pages/Reports'
+import Favorites from './Pages/Favorites'
+import Settings from './Pages/Settings'
 
 function App() {
    const Layout = () => {
@@ -35,6 +40,26 @@ function App() {
             {
                path: '/profile',
                element: <Profile />,
+            },
+            {
+               path: '/statistics',
+               element: <Statistics />,
+            },
+            {
+               path: '/reports',
+               element: <Reports />,
+            },
+            {
+               path: '/favorites',
+               element: <Favorites />,
+            },
+            {
+               path: '/settings',
+               element: <Settings />,
+            },
+            {
+               path: '/marker/:id',
+               element: <SingleMarker />,
             },
          ],
       },

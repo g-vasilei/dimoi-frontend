@@ -24,34 +24,46 @@ function Sidebar() {
             }`}
          >
             <div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 lg:mt-16 lg:min-h-0 lg:items-start lg:justify-start lg:pl-2 xl:fixed xl:left-0 xl:mt-0 xl:min-h-screen xl:w-64 xl:bg-slate-800 xl:pt-8 2xl:w-80'>
-               <h2 className='text-3xl text-white'>
+               <h2 className='px-4 text-3xl text-white'>
                   <Link to='/'>City Maps</Link>
                </h2>
                <ul className='flex flex-col gap-8 font-semibold text-white'>
-                  <li className='rounded-md p-2 hover:bg-slate-400'>
+                  <li className='rounded-md px-4 py-2 hover:bg-slate-400' onClick={() => setShowSidebar(false)}>
                      <Link to='/' className='flex cursor-pointer items-center gap-3'>
                         <FiHome /> Αρχική
                      </Link>
                   </li>
-                  <li className='flex cursor-pointer items-center gap-3 rounded-md p-2 hover:bg-slate-400'>
+                  <li
+                     className='flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 hover:bg-slate-400'
+                     onClick={() => setShowSidebar(false)}
+                  >
                      <Link to='/statistics' className='flex cursor-pointer items-center gap-3'>
                         <FiTrendingUp />
                         Στατιστικά
                      </Link>
                   </li>
-                  <li className='flex cursor-pointer items-center gap-3 rounded-md p-2 hover:bg-slate-400'>
+                  <li
+                     className='flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 hover:bg-slate-400'
+                     onClick={() => setShowSidebar(false)}
+                  >
                      <Link to='/reports' className='flex cursor-pointer items-center gap-3'>
                         <FiCompass />
                         Αναφορές
                      </Link>
                   </li>
-                  <li className='flex cursor-pointer items-center gap-3 rounded-md p-2 hover:bg-slate-400'>
+                  <li
+                     className='flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 hover:bg-slate-400'
+                     onClick={() => setShowSidebar(false)}
+                  >
                      <Link to='/favorites' className='flex cursor-pointer items-center gap-3'>
                         <FiStar />
                         Αγαπημένα
                      </Link>
                   </li>
-                  <li className='flex cursor-pointer items-center gap-3 rounded-md p-2 hover:bg-slate-400'>
+                  <li
+                     className='flex cursor-pointer items-center gap-3 rounded-md px-4 py-2 hover:bg-slate-400'
+                     onClick={() => setShowSidebar(false)}
+                  >
                      <Link to='/settings' className='flex cursor-pointer items-center gap-3'>
                         <FiSettings />
                         Ρυθμίσεις

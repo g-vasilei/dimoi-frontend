@@ -6,6 +6,7 @@ import Footer from '../Components/Footer'
 import { TfiClose } from 'react-icons/tfi'
 import { BiCurrentLocation } from 'react-icons/bi'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 type DataType = {
    lng: number
@@ -148,6 +149,8 @@ function Home() {
       console.log(data)
    }
 
+   const navigate = useNavigate()
+
    return (
       <div className='overflow-hidden'>
          <Map
@@ -159,7 +162,12 @@ function Home() {
             onDblClick={handleNewPlace}
             attributionControl={false}
          >
-            <Marker longitude={22.921534215344607} latitude={40.64699891428854} anchor='bottom' draggable={true}>
+            <Marker
+               longitude={22.921534215344607}
+               latitude={40.64699891428854}
+               anchor='bottom'
+               onClick={() => navigate('/marker/1')}
+            >
                <FaMapMarkerAlt size={35} fill='red' />
             </Marker>
             {newPlace !== undefined && (

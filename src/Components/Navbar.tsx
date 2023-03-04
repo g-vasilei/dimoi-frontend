@@ -31,7 +31,7 @@ function Navbar() {
                   <li className='px-3' onClick={() => setShowSubMenu(false)}>
                      <Link to='/'>Αποθηκευμένα Σημεία</Link>
                   </li>
-                  <li className='border-t px-3 pt-4'>Αποσύνδεση</li>
+                  <li className='cursor-pointer border-t px-3 pt-4'>Αποσύνδεση</li>
                </ul>
             </div>
          </div>
