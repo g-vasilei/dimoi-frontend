@@ -361,8 +361,6 @@ function Home() {
                </form>
             </div>
          )}
-
-         <Footer />
       </div>
    )
 }

@@ -13,6 +13,10 @@ import Statistics from './Pages/Statistics'
 import Reports from './Pages/Reports'
 import Favorites from './Pages/Favorites'
 import Settings from './Pages/Settings'
+import Users from './Pages/Users/Users'
+import User from './Pages/Users/User'
+import CreateUser from './Pages/Users/CreateUser'
+import Footer from './Components/Footer'
 
 function App() {
    const Layout = () => {
@@ -22,6 +26,7 @@ function App() {
             <div className='custom-width flex min-h-screen flex-col overflow-x-hidden xl:ml-64 2xl:ml-80'>
                <Navbar />
                <Outlet />
+               <Footer />
             </div>
             {/* <PrivateRoute></PrivateRoute> */}
          </>
@@ -58,8 +63,20 @@ function App() {
                element: <Settings />,
             },
             {
+               path: '/users',
+               element: <Users />,
+            },
+            {
+               path: '/user/new',
+               element: <CreateUser />,
+            },
+            {
                path: '/marker/:id',
                element: <SingleMarker />,
+            },
+            {
+               path: '/user/:id',
+               element: <User />,
             },
          ],
       },
@@ -72,7 +89,7 @@ function App() {
    return (
       <div className='flex w-screen bg-gray-100'>
          <RouterProvider router={router} />
-         <ToastContainer />
+         <ToastContainer limit={1} position='bottom-left' />
       </div>
    )
 }

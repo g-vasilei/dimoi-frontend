@@ -50,7 +50,7 @@ function Login() {
             <form className='flex flex-col gap-5'>
                <input
                   type='email'
-                  className='w-full rounded-md border border-solid border-slate-900 p-2'
+                  className='w-full rounded-md border border-solid border-slate-900 py-2 pl-5 pr-8'
                   placeholder='Email'
                   name='email'
                   onChange={onChange}
@@ -58,13 +58,13 @@ function Login() {
                <div className='relative'>
                   <input
                      type={showPassword ? 'text' : 'password'}
-                     className='w-full rounded-md border border-solid border-slate-900 p-2'
+                     className='w-full rounded-md border border-solid border-slate-900 py-2 px-8 pl-5'
                      placeholder='Κωδικός'
                      name='password'
                      onChange={onChange}
                   />
                   <span
-                     className='absolute right-3 top-2/4 -translate-y-2/4'
+                     className='absolute right-3 top-2/4 -translate-y-2/4 cursor-pointer'
                      onClick={() => setShowPassword((prevState) => !prevState)}
                   >
                      {showPassword ? <HiOutlineEyeSlash /> : <HiOutlineEye />}
