@@ -21,6 +21,11 @@ function Users() {
             </div>
          </div>
          <div className='mt-6 flex flex-col justify-start gap-4'>
+            <h1 className='before:a mt-8 text-2xl font-bold'>
+               <span className='relative mb-5 inline-block before:absolute before:-bottom-2 before:left-0 before:block before:h-[2px] before:w-[100px] before:bg-black'>
+                  <span className='relative'>Λίστα Χρηστών</span>
+               </span>
+            </h1>
             <div className='space-y-3 rounded-md bg-white p-5 shadow-md xl:grid xl:grid-cols-8 xl:space-y-0'>
                <div className='overflow-x-hidden xl:col-span-3'>
                   <span className='text-sm text-gray-500'>Όνομα:</span>
